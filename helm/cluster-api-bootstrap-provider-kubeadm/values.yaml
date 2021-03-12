@@ -1,3 +1,11 @@
 project:
   branch: "[[ .Branch ]]"
   commit: "[[ .SHA ]]"
+
+image:
+  registry: gcr.io
+  name: k8s-staging-cluster-api/kubeadm-bootstrap-controller
+  tag: v0.3.14
+
+featuregates:
+  machinepool: true

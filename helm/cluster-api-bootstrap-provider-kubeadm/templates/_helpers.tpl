@@ -24,13 +24,20 @@ app.giantswarm.io/commit: {{ .Values.project.commit | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 helm.sh/chart: {{ include "chart" . | quote }}
-cluster.x-k8s.io/provider: bootstrap-kubeadm
 {{- end -}}
 
 {{/*
 Selector labels
 */}}
 {{- define "labels.selector" -}}
+{{ include "labels.provider" . }}
 app.kubernetes.io/name: {{ include "name" . | quote }}
 app.kubernetes.io/instance: {{ .Release.Name | quote }}
+{{- end -}}
+
+{{/*
+Provider labels
+*/}}
+{{- define "labels.provider" -}}
+cluster.x-k8s.io/provider: bootstrap-kubeadm
 {{- end -}}
