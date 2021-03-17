@@ -3,9 +3,9 @@ project:
   commit: "[[ .SHA ]]"
 
 image:
-  registry: gcr.io
-  name: k8s-staging-cluster-api/kubeadm-bootstrap-controller
-  tag: v0.3.14
+  registry: quay.io
+  name: giantswarm/kubeadm-bootstrap-controller
+  tag: 1f96eea1165d6b356b3a1658eb4e3c7ddaec33b8
 
 featuregates:
   machinepool: true
