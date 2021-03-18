@@ -16,6 +16,9 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: validation.kubeadmconfig.bootstrap.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - bootstrap.cluster.x-k8s.io
