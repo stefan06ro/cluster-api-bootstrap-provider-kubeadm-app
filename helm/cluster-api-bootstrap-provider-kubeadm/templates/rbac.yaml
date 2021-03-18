@@ -122,7 +122,7 @@ roleRef:
   name: {{ include "resource.default.name" . }}-leader-election
 subjects:
 - kind: ServiceAccount
-  name: capi-kubeadm-bootstrap-manager
+  name: {{ include "resource.default.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -137,7 +137,7 @@ roleRef:
   name: {{ include "resource.default.name" . }}-manager
 subjects:
 - kind: ServiceAccount
-  name: capi-kubeadm-bootstrap-manager
+  name: {{ include "resource.default.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -152,11 +152,11 @@ roleRef:
   name: {{ include "resource.default.name" . }}-proxy
 subjects:
 - kind: ServiceAccount
-  name: capi-kubeadm-bootstrap-manager
+  name: {{ include "resource.default.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: capi-kubeadm-bootstrap-manager
+  name: {{ include "resource.default.name" . }}
   namespace: {{ include "resource.default.namespace" . }}

@@ -59,7 +59,7 @@ spec:
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
-      serviceAccountName: capi-kubeadm-bootstrap-manager
+      serviceAccountName: {{ include "resource.default.name" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule
