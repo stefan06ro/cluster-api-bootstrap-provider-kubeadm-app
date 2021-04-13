@@ -3,9 +3,12 @@ project:
   commit: "[[ .SHA ]]"
 
 image:
-  registry: quay.io
   name: giantswarm/kubeadm-bootstrap-controller
-  tag: 1f96eea1165d6b356b3a1658eb4e3c7ddaec33b8
+  tag: 815685c3d03ac5ca7b6eed6c3a3e3aafd0b96ad9
+rbacproxy:
+  image:
+    name: giantswarm/kube-rbac-proxy
+    tag: v0.4.1
 
 featuregates:
   machinepool: true
