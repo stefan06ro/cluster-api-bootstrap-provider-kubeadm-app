@@ -4,7 +4,7 @@ project:
 
 image:
   name: giantswarm/kubeadm-bootstrap-controller
-  tag: 815685c3d03ac5ca7b6eed6c3a3e3aafd0b96ad9
+  tag: bb90d2037f840c82ee2fd61a181699b94bbbb53e
 rbacproxy:
   image:
     name: giantswarm/kube-rbac-proxy

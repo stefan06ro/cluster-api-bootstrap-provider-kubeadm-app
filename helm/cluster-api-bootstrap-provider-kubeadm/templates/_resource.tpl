@@ -16,5 +16,5 @@ giantswarm
 {{- end -}}
 
 {{- define "resource.app.version" -}}
-0.0.1
+{{- .Chart.AppVersion | quote -}}
 {{- end -}}
