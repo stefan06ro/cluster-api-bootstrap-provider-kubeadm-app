@@ -5,9 +5,13 @@ metadata:
     {{- include "labels.common" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
+  annotations:
+    giantswarm.io/monitoring: "true"
+    prometheus.io/scheme: "https"
 spec:
   ports:
   - port: 443
     targetPort: webhook-server
   selector:
     {{- include "labels.selector" . | nindent 4 }}
+    control-plane: webhook

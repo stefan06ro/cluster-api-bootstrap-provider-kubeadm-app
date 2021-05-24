@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
-    control-plane: controller-manager
+    control-plane: webhook
   name: {{ include "resource.default.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
 spec:
@@ -11,12 +11,12 @@ spec:
   selector:
     matchLabels:
       {{- include "labels.selector" . | nindent 6 }}
-      control-plane: controller-manager
+      control-plane: webhook
   template:
     metadata:
       labels:
         {{- include "labels.common" . | nindent 8 }}
-        control-plane: controller-manager
+        control-plane: webhook
     spec:
       containers:
       - args:
@@ -46,6 +46,7 @@ spec:
         - mountPath: /tmp/k8s-webhook-server/serving-certs
           name: cert
           readOnly: true
+      serviceAccountName: {{ include "resource.default.name" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule
