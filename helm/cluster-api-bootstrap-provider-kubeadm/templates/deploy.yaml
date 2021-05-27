@@ -45,7 +45,7 @@ spec:
       - args:
         - --metrics-addr=127.0.0.1:8080
         - --feature-gates=MachinePool={{ .Values.featuregates.machinepool }}
-        - --watch-filter={{ include "resource.app.version" . }}
+        - --watch-filter={{ .Values.watchfilter }}
         command:
         - /manager
         image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
