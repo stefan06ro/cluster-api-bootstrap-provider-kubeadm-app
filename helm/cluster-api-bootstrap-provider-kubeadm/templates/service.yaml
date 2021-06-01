@@ -7,15 +7,14 @@ metadata:
     {{- include "labels.common" . | nindent 4 }}
   annotations:
     giantswarm.io/monitoring: "true"
-    prometheus.io/scheme: "https"
   name: {{ include "resource.default.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   ports:
-  - name: https
-    port: 8443
+  - name: http
+    port: 8080
     protocol: TCP
-    targetPort: https
+    targetPort: http
   selector:
     control-plane: controller-manager
     {{- include "labels.selector" . | nindent 4 }}
