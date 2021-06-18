@@ -4,7 +4,7 @@ project:
 
 image:
   name: giantswarm/kubeadm-bootstrap-controller
-  tag: bb90d2037f840c82ee2fd61a181699b94bbbb53e
+  tag: 98fc14614970fe9d4542cb6173061290b3e765db
 
 featuregates:
   machinepool: true

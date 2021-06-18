@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Updated cluster-api to v0.3.19.
+
 ## [0.3.14-gs3] - 2021-06-01
  
 ### Removed
