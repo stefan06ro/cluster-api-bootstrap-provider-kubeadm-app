@@ -3,4 +3,4 @@ name: cluster-api-bootstrap-provider-kubeadm
 description: Cluster API bootstrap provider Kubeadm (CABPK) is a component of Cluster API that is responsible of generating a cloud-init script to turn a Machine into a Kubernetes Node; this implementation uses kubeadm for kubernetes bootstrap.
 home: https://github.com/giantswarm/cluster-api-bootstrap-provider-kubeadm-app
 version: [[ .Version ]]
-appVersion: 0.3.19-gs1
+appVersion: [[ .AppVersion ]]
