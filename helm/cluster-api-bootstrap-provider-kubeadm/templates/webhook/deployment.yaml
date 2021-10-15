@@ -36,7 +36,9 @@ spec:
         - mountPath: /tmp/k8s-webhook-server/serving-certs
           name: cert
           readOnly: true
-      serviceAccountName: {{ include "resource.default.name" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      serviceAccountName: {{ include "resource.webhook.name" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule

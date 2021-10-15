@@ -43,10 +43,11 @@ spec:
           - containerPort: 8080
             name: http
             protocol: TCP
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
-      securityContext: {}
       serviceAccountName: {{ include "resource.default.name" . }}
       terminationGracePeriodSeconds: 10
       tolerations:

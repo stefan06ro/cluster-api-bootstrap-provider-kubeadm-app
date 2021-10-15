@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Set pod security context.
+
 ## [0.3.22-gs2] - 2021-10-15
 
 - Prepare helm values for configuration management.

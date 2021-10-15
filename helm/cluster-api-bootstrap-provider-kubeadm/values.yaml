@@ -16,3 +16,7 @@ registry:
 
 ports:
   metrics: 8080
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
