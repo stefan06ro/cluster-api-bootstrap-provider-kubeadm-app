@@ -10,3 +10,9 @@ featuregates:
   machinepool: true
 
 watchfilter: capi
+
+registry:
+  domain: docker.io
+
+ports:
+  metrics: 8080

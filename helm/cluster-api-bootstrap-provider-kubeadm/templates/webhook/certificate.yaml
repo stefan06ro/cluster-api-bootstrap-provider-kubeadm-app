@@ -1,9 +1,9 @@
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-cert
+  name: {{ include "resource.webhook.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   dnsNames:
@@ -13,4 +13,4 @@ spec:
     group: cert-manager.io
     kind: ClusterIssuer
     name: selfsigned-giantswarm
-  secretName: {{ include "resource.default.name" . }}-cert
+  secretName: {{ include "resource.webhook.name" . }}

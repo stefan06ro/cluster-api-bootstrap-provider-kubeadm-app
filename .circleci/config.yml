@@ -1,16 +1,29 @@
 version: 2.1
 
 orbs:
-  architect: giantswarm/architect@4.4.0
+  architect: giantswarm/architect@4.6.0
 workflows:
   build:
     jobs:
       - architect/push-to-app-catalog:
-          name: app-catalog
+          name: push-to-app-catalog
           context: "architect"
           app_catalog: "control-plane-catalog"
           app_catalog_test: "control-plane-test-catalog"
           chart: "cluster-api-bootstrap-provider-kubeadm"
           filters:
+            tags:
+              only: /^v.*/
+      - architect/push-to-app-collection:
+          name: push-aws-app-collection
+          context: architect
+          app_name: "cluster-api-bootstrap-provider-kubeadm"
+          app_collection_repo: "aws-app-collection"
+          requires:
+            - push-to-app-catalog
+          filters:
+            # Only do this when a new tag is created.
+            branches:
+              ignore: /.*/
             tags:
               only: /^v.*/

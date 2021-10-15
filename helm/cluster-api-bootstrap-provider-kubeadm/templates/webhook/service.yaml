@@ -3,15 +3,19 @@ kind: Service
 metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-webhook
+  name: {{ include "resource.webhook.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
   annotations:
     giantswarm.io/monitoring: "true"
-    giantswarm.io/monitoring-port: "8080"
+    giantswarm.io/monitoring-port: "{{ .Values.ports.metrics }}"
 spec:
   ports:
-  - port: 443
+  - name: webhook
+    port: 443
     targetPort: webhook-server
+  - name: metrics
+    port: {{ .Values.ports.metrics }}
+    targetPort: metrics
   selector:
     {{- include "labels.selector" . | nindent 4 }}
     control-plane: webhook

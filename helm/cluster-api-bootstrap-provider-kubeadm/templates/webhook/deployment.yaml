@@ -4,7 +4,7 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
     control-plane: webhook
-  name: {{ include "resource.default.name" . }}-webhook
+  name: {{ include "resource.webhook.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   replicas: 1
@@ -25,7 +25,7 @@ spec:
         - --feature-gates=MachinePool={{ .Values.featuregates.machinepool }}
         command:
         - /manager
-        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.registry.domain }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: Always
         name: manager
         ports:
@@ -45,4 +45,4 @@ spec:
       - name: cert
         secret:
           defaultMode: 420
-          secretName: {{ include "resource.default.name" . }}-cert
+          secretName: {{ include "resource.webhook.name" . }}

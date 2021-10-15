@@ -18,3 +18,11 @@ giantswarm
 {{- define "resource.app.version" -}}
 {{- .Chart.AppVersion | quote -}}
 {{- end -}}
+
+{{- define "resource.webhook.name" -}}
+{{- include "resource.default.name" . -}}-webhook
+{{- end -}}
+
+{{- define "resource.app.unique" -}}
+{{- if eq $.Chart.Name $.Release.Name }}true{{ else }}false{{ end }}
+{{- end -}}

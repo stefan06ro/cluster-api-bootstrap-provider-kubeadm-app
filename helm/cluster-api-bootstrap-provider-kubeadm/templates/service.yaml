@@ -1,22 +1,23 @@
+{{ if eq (include "resource.app.unique" .) "false" }}
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    clusterctl.cluster.x-k8s.io: ""
-    control-plane: controller-manager
     {{- include "labels.common" . | nindent 4 }}
   annotations:
+    prometheus.io/scrape: "true"
     giantswarm.io/monitoring: "true"
+    giantswarm.io/monitoring-port: "{{ .Values.ports.metrics }}"
   name: {{ include "resource.default.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   ports:
-  - name: http
-    port: 8080
-    protocol: TCP
-    targetPort: http
+  - name: metrics
+    port: {{ .Values.ports.metrics }}
+    targetPort: metrics
   selector:
     control-plane: controller-manager
     {{- include "labels.selector" . | nindent 4 }}
   sessionAffinity: None
   type: ClusterIP
+{{ end }}
