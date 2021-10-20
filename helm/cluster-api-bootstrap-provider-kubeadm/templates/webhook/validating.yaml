@@ -17,7 +17,7 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: validation.kubeadmconfig.bootstrap.cluster.x-k8s.io
-  admissionReviewVersions: [v1]
+  admissionReviewVersions: [v1beta1]
   objectSelector:
     matchLabels:
       cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}

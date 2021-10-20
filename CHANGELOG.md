@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Change webhooks to use `v1beta1` of `admissionReviewVersions`
+
 ## [0.3.22-gs3] - 2021-10-15
 
 ### Fixed
@@ -29,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated cluster-api to v0.3.19.
 
 ## [0.3.14-gs3] - 2021-06-01
- 
+
 ### Removed
 
 - Remove kube-rbac-proxy for the metrics endpoint.
